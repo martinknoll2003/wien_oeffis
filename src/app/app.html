@@ -1,0 +1,42 @@
+<div style="display: flex; align-items: center; justify-content: center;">
+  <h2>{{ this.currentTime() | date:'dd/MM/yyyy, HH:mm' }}</h2>
+</div>  
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  @if (!this.loading && this.error == "") {
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+      <div style="width: 100%; max-width: 800px;">
+        <h1 style="display: flex; justify-content: center; align-items: center; margin: 0 0 20px 0;">
+          <span>Live Tracking</span>
+        </h1>
+
+        <h3>Richtung Reumannplatz</h3>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div *ngFor="let item of richtungReumannPlatz" style="margin-top: 10px;">
+            <strong>Line {{item.line}}</strong>
+            <ul>
+              <li *ngFor="let t of item.times | slice:0:3" [ngStyle]="{ color: getTimeDiff(t).diffInS < 90 ? 'red' : 'green' }">
+                    Ankunft um {{ t | date:'HH:mm:ss' }} -- Du hast noch: {{ getTimeDiff(t).display }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Richtung Geiereckstraße</h3>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div *ngFor="let item of richtungGeiereckStrasse" style="margin-top: 10px;">
+            <strong>Line {{item.line}}</strong>
+            <ul>
+              <li *ngFor="let t of item.times | slice:0:3" [ngStyle]="{ color: getTimeDiff(t).diffInS < 90 ? 'red' : 'green' }">
+                    Ankunft um {{ t | date:'HH:mm:ss' }} -- Du hast noch: {{ getTimeDiff(t).display }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  }
+</div>
