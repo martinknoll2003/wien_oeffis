@@ -1,5 +1,24 @@
-npx ng build --configuration=production
+# Wien Oeffis
 
-sudo rsync -a --delete dist/*/browser/ /var/www/html/
+Monorepo mit:
 
-sudo nginx -t && sudo systemctl reload nginx
+- `apps/web`: React + Vite Dashboard
+- `apps/api`: Hono Backend für Wiener-Linien-OGD
+- `packages/shared`: gemeinsame Typen und Zod-Schemas
+
+## Entwicklung
+
+```bash
+npm install
+npm run dev
+```
+
+Das Web läuft standardmäßig auf `http://localhost:5173`, die API auf `http://localhost:3000`.
+
+## Verifikation
+
+```bash
+npm run build
+npm run typecheck
+npm run test
+```
