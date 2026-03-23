@@ -205,9 +205,9 @@ export const App = () => {
   const focusBoards = orderedBoards.filter((board) => focusSelection.includes(board.diva)).slice(0, 2);
   const compactFocusMode = viewport.width <= 820 || viewport.height <= 900;
   const focusLineLimit =
-    focusBoards.length <= 1 ? (compactFocusMode ? 2 : 3) : compactFocusMode ? 2 : 2;
+    focusBoards.length <= 1 ? (compactFocusMode ? 3 : 4) : compactFocusMode ? 2 : 3;
   const focusDepartureLimit =
-    focusBoards.length <= 1 ? (compactFocusMode ? 2 : 3) : compactFocusMode ? 2 : 2;
+    focusBoards.length <= 1 ? (compactFocusMode ? 3 : 4) : compactFocusMode ? 2 : 3;
 
   const addFavorite = (result: StopSearchResult) => {
     setFavorites((current) => {

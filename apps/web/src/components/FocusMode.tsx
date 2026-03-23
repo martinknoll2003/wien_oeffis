@@ -106,16 +106,14 @@ export const FocusMode = ({
                   key={`${board.diva}-${group.lineName}-${group.platform}-${group.direction}-${group.rbl}`}
                   className="focus-line"
                 >
-                  <div className="focus-line-header">
-                    <div className="focus-line-left">
-                      <span className="focus-line-badge">{group.lineName}</span>
-                      <div>
-                        <h3>{group.towards}</h3>
-                        <p>
-                          Steig {group.platform ?? '–'}
-                          {group.direction ? ` · Richtung ${group.direction}` : ''}
-                        </p>
-                      </div>
+                  <div className="focus-line-left">
+                    <span className="focus-line-badge">{group.lineName}</span>
+                    <div>
+                      <h3>{group.towards}</h3>
+                      <p>
+                        Steig {group.platform ?? '–'}
+                        {group.direction ? ` · Richtung ${group.direction}` : ''}
+                      </p>
                     </div>
                   </div>
 
@@ -127,9 +125,7 @@ export const FocusMode = ({
                       >
                         <span className="focus-countdown">{departure.countdownMinutes}</span>
                         <span className="focus-countdown-unit">min</span>
-                        <span className="focus-exact-time">
-                          {formatTime(departure.realtimeTime ?? departure.plannedTime)}
-                        </span>
+                        <span className="focus-exact-time">{formatTime(departure.realtimeTime ?? departure.plannedTime)}</span>
                       </article>
                     ))}
                   </div>
